@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Test Deployment -->
+<jnlp spec="1.0+"  
+	codebase="http://lcadaptive.loudcloudsystems.com/jcrBrowser/"  
+	href="JCRBrowser.jnlp">
+
+  <information>
+    <title>LoudBook Creator</title>
+    <vendor>LoudCloud Systems</vendor>
+    <homepage href="http://www.loudcloudsystems.com/"/>
+    <description>This is to browse JCR repository</description>
+    <description kind="short">This is to browse JCR repository</description>
+    <icon href="favicon.png"/>
+    <!-- icon kind="splash" href="mysplash.gif"/ -->
+    <offline-allowed/>
+  </information>
+
+  <security>
+    <all-permissions/>
+  </security>
+
+  <resources>
+    <j2se version="1.6+" />
+    <jar href="jcrBrowser.jar" main="true"/>
+  </resources>
+
+  <application-desc main-class="app.lcs.jcrbrowser.Startup" />
+
+</jnlp>

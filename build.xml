@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="createSingleJar" name="JCR Browser">
+	<!--Need to exclude the main hibernate file, so that jar can be independent -->
+
+	<target name="prepareDependencies">
+		<jar destfile="./jcrBrowserD.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Version" value="1.0 alpha" />
+				<attribute name="Organisation" value="LoudCloud" />
+				<attribute name="Built-By" value="Aniruddha Dutta Chowdhury" />
+				<attribute name="Main-Class" value="app.lcs.jcrbrowser.Startup" />
+			</manifest>
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-beanutils-1.8.0.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-codec-1.4.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-collections-3.2.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-compress-1.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-httpclient-3.0.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-io-1.3.2.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-logging-1.1.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/httpclient-4.0.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/httpcore-4.0.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/httpmime-4.0.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-api-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-core-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr-commons-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr-rmi-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr-server-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr2dav-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr2spi-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-ocm-1.5.0.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-spi-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-spi-commons-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-spi2dav-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-webdav-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jcr-2.0.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/slf4j-api-1.6.0.jar" />
+		</jar>
+	</target>
+
+	<target name="createSingleJar" depends="prepare">
+		<jar destfile="./jcrBrowser.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Version" value="1.0 alpha" />
+				<attribute name="Organisation" value="LoudCloud" />
+				<attribute name="Built-By" value="Aniruddha Dutta Chowdhury" />
+				<attribute name="Main-Class" value="app.lcs.jcrbrowser.Startup" />
+			</manifest>
+			<fileset dir="./dist/classes" />
+			<!--<zipfileset excludes="META-INF/**/*" src="./lib/commons-beanutils-1.8.0.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-codec-1.4.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-collections-3.2.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-compress-1.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-httpclient-3.0.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-io-1.3.2.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/commons-logging-1.1.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/httpclient-4.0.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/httpcore-4.0.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/httpmime-4.0.1.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-api-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-core-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr-commons-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr-rmi-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr-server-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr2dav-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-jcr2spi-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-ocm-1.5.0.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-spi-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-spi-commons-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-spi2dav-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jackrabbit-webdav-2.2.12.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/jcr-2.0.jar" />
+			<zipfileset excludes="META-INF/**/*" src="./lib/slf4j-api-1.6.0.jar" />-->
+		</jar>
+
+		<!--<jar destfile="./jcrBrowserD.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Version" value="1.0 alpha" />
+				<attribute name="Organisation" value="LoudCloud" />
+				<attribute name="Built-By" value="Aniruddha Dutta Chowdhury" />
+				<attribute name="Main-Class" value="app.lcs.jcrbrowser.Startup" />
+			</manifest>
+			<zipfileset src="./lib/commons-beanutils-1.8.0.jar" />
+			<zipfileset src="./lib/commons-codec-1.4.jar" />
+			<zipfileset src="./lib/commons-collections-3.2.1.jar" />
+			<zipfileset src="./lib/commons-compress-1.1.jar" />
+			<zipfileset src="./lib/commons-httpclient-3.0.jar" />
+			<zipfileset src="./lib/commons-io-1.3.2.jar" />
+			<zipfileset src="./lib/commons-logging-1.1.1.jar" />
+			<zipfileset src="./lib/httpclient-4.0.1.jar" />
+			<zipfileset src="./lib/httpcore-4.0.1.jar" />
+			<zipfileset src="./lib/httpmime-4.0.1.jar" />
+			<zipfileset src="./lib/jackrabbit-api-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-core-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-jcr-commons-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-jcr-rmi-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-jcr-server-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-jcr2dav-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-jcr2spi-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-ocm-1.5.0.jar" />
+			<zipfileset src="./lib/jackrabbit-spi-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-spi-commons-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-spi2dav-2.2.12.jar" />
+			<zipfileset src="./lib/jackrabbit-webdav-2.2.12.jar" />
+			<zipfileset src="./lib/jcr-2.0.jar" />
+			<zipfileset src="./lib/slf4j-api-1.6.0.jar" />
+		</jar>-->
+	</target>
+
+	<target name="signJar">
+		<signjar jar="./jcrBrowser.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+	</target>
+	
+	<target name="signJarSupporting">
+		<signjar jar="./lib/commons-beanutils-1.8.0.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/commons-codec-1.4.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/commons-collections-3.2.1.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/commons-compress-1.1.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/commons-httpclient-3.0.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/commons-io-1.3.2.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/commons-logging-1.1.1.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/httpclient-4.0.1.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/httpcore-4.0.1.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/httpmime-4.0.1.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-api-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-core-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-jcr-commons-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-jcr-rmi-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-jcr-server-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-jcr2dav-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-jcr2spi-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-ocm-1.5.0.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-spi-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-spi-commons-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-spi2dav-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jackrabbit-webdav-2.2.12.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/jcr-2.0.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+		<signjar jar="./lib/slf4j-api-1.6.0.jar" alias="yoda" storepass="aniruddha" keystore="./.keystore" />
+	</target>
+
+	<target name="prepare" depends="clean">
+		<mkdir dir="dist/classes" />
+		<javac srcdir="src/" destdir="dist/classes/" source="1.6" target="1.6">
+			<classpath>
+				<fileset dir="lib" />
+			</classpath>
+		</javac>
+		<copy todir="dist/classes">
+			<fileset dir="src/" excludes="**/*.java">
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="clean" if="">
+		<delete file="./jcrBrowser.jar" />
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="dist/classes" includes="**/*" />
+		</delete>
+		<delete dir="dist/classes" failonerror="false" />
+	</target>
+
+	<target name="createJavaDoc">
+		<javadoc sourcepath="src/" destdir="javaDoc">
+		</javadoc>
+	</target>
+
+</project>
