@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Test Deployment -->
 <jnlp spec="1.0+"  
-	codebase="http://lcadaptive.loudcloudsystems.com/jcrBrowser/"  
+	codebase="yourserver/jcrBrowser/"  
 	href="JCRBrowser.jnlp">
 
   <information>
     <title>LoudBook Creator</title>
     <vendor>LoudCloud Systems</vendor>
-    <homepage href="http://www.loudcloudsystems.com/"/>
+    <homepage href="https://github.com/adchowdhury/jcrBrowser/"/>
     <description>This is to browse JCR repository</description>
     <description kind="short">This is to browse JCR repository</description>
     <icon href="favicon.png"/>
